@@ -24,6 +24,8 @@ webhookRoutes.get("/", (req, res) => {
   if (mode === "subscribe" && token === WEBHOOK_VERIFY_TOKEN) {
     // respond with 200 OK and challenge token from the request
     res.status(200).send(challenge);
+    console.log("challenge = ",challenge);
+
     console.log("Webhook verified successfully!");
   } else {
     // respond with '403 Forbidden' if verify tokens do not match
