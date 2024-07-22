@@ -4,13 +4,13 @@ FROM node:22 AS Base
 # Set the working directory inside the container
 WORKDIR /app
 # Copy only the package.json and package-lock.json (if exists) to leverage Docker cache
-COPY package*.json .
+COPY package*.json ./
 
 FROM base AS dependencies
 # Copy the rest of the application files to the container
 # Install project dependencies
 RUN npm ci
-# COPY . .
+COPY . .
 RUN npm run build
 
 # runner stage
