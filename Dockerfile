@@ -10,7 +10,7 @@ FROM base AS dependencies
 # Copy the rest of the application files to the container
 # Install project dependencies
 RUN npm ci
-COPY . .
+# COPY . .
 RUN npm run build
 
 # runner stage
